@@ -28,4 +28,8 @@ public class Category {
     @Column
     @Embedded
     private Type type;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private MoneyMindAccount account;
 }

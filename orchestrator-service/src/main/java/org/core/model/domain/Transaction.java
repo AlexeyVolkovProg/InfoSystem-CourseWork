@@ -45,4 +45,8 @@ public class Transaction {
     @OneToOne(mappedBy = "transaction",
             fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Suggestion suggestion;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private MoneyMindAccount account;
 }

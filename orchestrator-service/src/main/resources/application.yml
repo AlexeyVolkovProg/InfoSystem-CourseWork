@@ -4,12 +4,16 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:none}
       show-sql: ${SPRING_JPA_SHOW_SQL:true}
       properties:
         hibernate:
           dialect: ${SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
           jdbc.lob.non_contextual_creation: ${SPRING_JPA_PROPERTIES_HIBERNATE_JDBC_LOB_NON_CONTEXTUAL_CREATION:true}
+
+  liquibase:
+    change-log: db/changelog/main-changelog.xml
+    enabled: true
 
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:24000/mydatabase}
